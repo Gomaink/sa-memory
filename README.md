@@ -22,6 +22,4 @@ O programa conta com funções que retornam:
 
 - Execute o programa compilado:
 
-- Execute o programa compilado:
-
 `./src/main.exe`
