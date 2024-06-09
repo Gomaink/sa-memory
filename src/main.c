@@ -24,24 +24,25 @@ int main() {
     }
 
     int playerMoney = ReadInt(hProcess, MONEY_ADDRESS);
-    printf("O jogador tem $%d de dinheiro.\n", playerMoney);
-
     int playerWanted = ReadInt(hProcess, WANTED_ADDRESS);
-    printf("O jogador tem %d niveis de procurado.\n", playerWanted);
-
     float playerHealth = GetPlayerHealth(hProcess);
     float playerMaxHealth = GetPlayerMaxHealth(hProcess);
-    printf("A vida do jogador e: %.2f/%.2f\n", playerHealth, playerMaxHealth);
-
     float playerArmour = GetPlayerArmour(hProcess);
-    printf("O colete do jogador e: %.2f\n", playerArmour);
-
     float x = ReadFloat(hProcess, X_ADDRESS);
     float y = ReadFloat(hProcess, Y_ADDRESS);
     float z = ReadFloat(hProcess, Z_ADDRESS);
-    printf("A localizacao do jogador e: X = %.2f, Y = %.2f, Z = %.2f\n", x, y, z);
 
-    printf("A localizacao do jogador e: %s\n", getPlayerZone(x, y, z));
+    printf("Informacoes do jogador:\n\
+    Vida: %.2f/%.2f\n\
+    Colete: %.2f\n\
+    Dinheiro: %d\n\
+    Nivel de procurado: %d\n\
+    Localizacao do jogador: %s (X = %.2f, Y = %.2f, Z = %.2f)\n", 
+    playerHealth, playerMaxHealth,
+    playerArmour,
+    playerMoney,
+    playerWanted,
+    getPlayerZone(x, y, z), x, y, z);
 
     CloseHandle(hProcess);
     return 0;
