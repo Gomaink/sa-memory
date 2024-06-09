@@ -8,6 +8,7 @@ O programa conta com funções que retornam:
 - Dinheiro
 - Arma atual
 - Nível de procurado
+- Estado do jogador (Em um veículo ou a pé)
 - Localização (X, Y, Z e/ou Bairro)
 
 ## Compilação e Execução
@@ -19,7 +20,7 @@ O programa conta com funções que retornam:
 
 - Compile o código usando um compilador C/C++ compatível. Por exemplo, com o GCC:
 
-`gcc -o src/main src/main.c src/process_utils.c src/memory_utils.c src/addresses.c src/zones.c src/player_properties.c src/weapons.c -lpsapi`
+`gcc -o src/main src/main.c src/process_utils.c src/memory_utils.c src/addresses.c src/zones.c src/player_properties.c src/weapons.c src/vehicles.c -lpsapi`
 
 - Execute o programa compilado:
 
