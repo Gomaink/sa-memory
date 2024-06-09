@@ -1,31 +1,28 @@
 # SA Memory
 
-Este é um projeto simples desenvolvido por diversão e para testar conhecimentos. Consiste em um programa que lê informações do jogo GTA: San Andreas em execução.
+This is a simple project developed for fun and to test knowledge. It consists of a program that reads information from the game GTA: San Andreas while it's running.
 
-O programa conta com funções que retornam:
-- Vida/Máximo de vida
-- Colete
-- Dinheiro
-- Arma atual
-- Nível de procurado
-- Estado do jogador (Em um veículo ou a pé)
-- Localização (X, Y, Z e/ou Bairro)
+The program features functions that return:
 
-## Compilação e Execução
-- Clone este repositório para o seu sistema local.
+- Health/Maximum health
+- Armor
+- Money
+- Current weapon
+- Wanted level
+- Player state (In a vehicle or on foot)
+- Location (X, Y, Z and/or District)
 
-- Certifique-se de que a versão do GTA: San Andreas é a 1.0 e que está em execução.
-
-- Abra um terminal na pasta do projeto.
-
-- Compile o código usando um compilador C/C++ compatível. Por exemplo, com o GCC:
+## Compilation and Execution
+- Clone this repository to your local system.
+- Ensure that the version of GTA: San Andreas is 1.0 and it is running.
+- Open a terminal in the project folder.
+- Compile the code using a compatible C/C++ compiler. For example, with GCC:
 
 `gcc -o src/main src/main.c src/process_utils.c src/memory_utils.c src/addresses.c src/zones.c src/player_properties.c src/weapons.c src/vehicles.c -lpsapi`
 
-- Execute o programa compilado:
+- Execute the compiled program:
 
 `./src/main.exe`
 
-## Documentação dos endereços de memória
-
-Gostaria de deixar os créditos ao site <a href="https://gtamods.com/wiki/Memory_Addresses_(SA)">gtamods</a>, que foi por onde encontrei os endereços de memória do GTA.
+## Memory addresses documentation
+I'd like to give credits to the website <a href="https://gtamods.com/wiki/Memory_Addresses_(SA)">gtamods</a>, where I found the memory addresses for GTA.
