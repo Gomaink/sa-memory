@@ -6,6 +6,7 @@ O programa conta com funções que retornam:
 - Vida/Máximo de vida
 - Colete
 - Dinheiro
+- Arma atual
 - Nível de procurado
 - Localização (X, Y, Z e/ou Bairro)
 
