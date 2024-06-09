@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include "player_properties.h"
 #include "addresses.h"
 
@@ -26,4 +27,14 @@ float GetPlayerArmour(HANDLE hProcess) {
     float armourValue;
     ReadProcessMemory(hProcess, (LPVOID)armourAddress, &armourValue, sizeof(float), NULL);
     return armourValue;
+}
+
+bool IsPlayerInVehicle(HANDLE hProcess) {
+    DWORD baseAddress;
+    ReadProcessMemory(hProcess, (LPVOID)PLAYER_BASE_ADDRESS, &baseAddress, sizeof(DWORD), NULL);
+    
+    DWORD currentVehiclePtr;
+    ReadProcessMemory(hProcess, (LPVOID)IN_VEHICLE_ADDRESS, &currentVehiclePtr, sizeof(DWORD), NULL);
+    
+    return currentVehiclePtr != 0;
 }

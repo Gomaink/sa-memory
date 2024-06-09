@@ -8,6 +8,7 @@
 #include "zones.h"
 #include "player_properties.h"
 #include "weapons.h"
+#include "vehicles.h"
 
 int main() {
     const char* processName = "gta_sa.exe";
@@ -27,6 +28,7 @@ int main() {
     int playerMoney = ReadInt(hProcess, MONEY_ADDRESS);
     int playerWanted = ReadInt(hProcess, WANTED_ADDRESS);
     int playerWeapon = ReadInt(hProcess, WEAPON_ID_ADDRESS);
+    int playerVehicle = ReadInt(hProcess, CURRENT_VEHICLE_ID_ADDRESS);
     float playerHealth = GetPlayerHealth(hProcess);
     float playerMaxHealth = GetPlayerMaxHealth(hProcess);
     float playerArmour = GetPlayerArmour(hProcess);
@@ -35,19 +37,23 @@ int main() {
     float z = ReadFloat(hProcess, Z_ADDRESS);
 
 
+    bool playerInVehicle = IsPlayerInVehicle(hProcess);
     printf("Informacoes do jogador:\n\
-    Vida: %.2f/%.2f\n\
-    Colete: %.2f\n\
-    Dinheiro: %d\n\
-    Arma atual: %s\n\
-    Nivel de procurado: %d\n\
-    Localizacao do jogador: %s (X = %.2f, Y = %.2f, Z = %.2f)\n", 
-    playerHealth, playerMaxHealth,
-    playerArmour,
-    playerMoney,
-    GetWeaponName(playerWeapon),
-    playerWanted,
-    getPlayerZone(x, y, z), x, y, z);
+        Vida: %.2f/%.2f\n\
+        Colete: %.2f\n\
+        Dinheiro: %d\n\
+        Arma atual: %s\n\
+        Nivel de procurado: %d\n\
+        O jogador %s%s\n\
+        Localizacao do jogador: %s (X = %.2f, Y = %.2f, Z = %.2f)\n",
+        playerHealth, playerMaxHealth,
+        playerArmour,
+        playerMoney,
+        GetWeaponName(playerWeapon),
+        playerWanted,
+        playerInVehicle ? "esta em um veiculo, " : "esta a pe.",
+        playerInVehicle ? GetVehicleName(playerVehicle) : "",
+        getPlayerZone(x, y, z), x, y, z);
 
     CloseHandle(hProcess);
     return 0;
