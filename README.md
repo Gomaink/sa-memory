@@ -12,7 +12,7 @@ O programa conta com funções que retornam:
 ## Compilação e Execução
 - Clone este repositório para o seu sistema local.
 
-- Certifique-se de que o GTA: San Andreas está em execução.
+- Certifique-se de que a versão do GTA: San Andreas é a 1.0 e que está em execução.
 
 - Abra um terminal na pasta do projeto.
 
@@ -23,3 +23,7 @@ O programa conta com funções que retornam:
 - Execute o programa compilado:
 
 `./src/main.exe`
+
+## Documentação dos endereços de memória
+
+Gostaria de deixar os créditos ao site <a href="https://gtamods.com/wiki/Memory_Addresses_(SA)">gtamods</a>, que foi por onde encontrei os endereços de memória do GTA.
