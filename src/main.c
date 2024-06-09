@@ -7,6 +7,7 @@
 #include "addresses.h"
 #include "zones.h"
 #include "player_properties.h"
+#include "weapons.h"
 
 int main() {
     const char* processName = "gta_sa.exe";
@@ -25,6 +26,7 @@ int main() {
 
     int playerMoney = ReadInt(hProcess, MONEY_ADDRESS);
     int playerWanted = ReadInt(hProcess, WANTED_ADDRESS);
+    int playerWeapon = ReadInt(hProcess, WEAPON_ID_ADDRESS);
     float playerHealth = GetPlayerHealth(hProcess);
     float playerMaxHealth = GetPlayerMaxHealth(hProcess);
     float playerArmour = GetPlayerArmour(hProcess);
@@ -32,15 +34,18 @@ int main() {
     float y = ReadFloat(hProcess, Y_ADDRESS);
     float z = ReadFloat(hProcess, Z_ADDRESS);
 
+
     printf("Informacoes do jogador:\n\
     Vida: %.2f/%.2f\n\
     Colete: %.2f\n\
     Dinheiro: %d\n\
+    Arma atual: %s\n\
     Nivel de procurado: %d\n\
     Localizacao do jogador: %s (X = %.2f, Y = %.2f, Z = %.2f)\n", 
     playerHealth, playerMaxHealth,
     playerArmour,
     playerMoney,
+    GetWeaponName(playerWeapon),
     playerWanted,
     getPlayerZone(x, y, z), x, y, z);
 
