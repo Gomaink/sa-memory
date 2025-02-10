@@ -26,19 +26,58 @@ bool IsPlayerInVehicle(HANDLE hProcess);
 ```
 
 ## Compilation and Execution
-- Clone this repository to your project.
+### Prerequisites
 
-- Make sure your version of GTA: San Andreas is 1.0 and is running.
+- Make sure that the GTA: San Andreas version is 1.0 and the game is running.
+- You need to have CMake installed on your system. You can download it here.
+- On Windows, you need to have Visual Studio or MinGW installed.
+- On Linux, you need GCC or Clang installed.
 
-- Open a terminal in the project folder.
+### Steps to compile on Windows and Linux
+#### 1. Clone this repository to your local machine.
 
-- Compile the code using a compatible C/C++ compiler. For example, with GCC:
+```bash
+git clone https://your-repository.git
+cd sa-memory
+```
 
-`gcc -o src/main src/main.c src/process_utils.c src/addresses.c src/zones.c src/player_data.c src/vehicles.c src/weapons.c -lpsapi`
+#### 2. Create the build directory:
 
-- Run the compiled program:
+- Create a new build folder inside the project:
+```bash
+mkdir build
+cd build
+```
+#### 3. Run CMake to configure the project:
 
-`./src/main.exe`
+- CMake will automatically detect the correct compiler and generate the appropriate build files.
+```bash
+cmake ..
+```
+#### 4. Build the project:
+
+- On Windows:
+```bash
+cmake --build . --config Release
+```
+- On Linux:
+```bash
+make
+```
+
+#### 5. Run the compiled program:
+
+- On Windows, the generated program will be samemory.exe, and on Linux, it will be samemory (without the .exe suffix).
+#### On Windows:
+
+```sh
+./samemory.exe
+```
+#### On Linux:
+
+```sh
+./samemory
+```
 
 ## Memory Address Documentation
 
