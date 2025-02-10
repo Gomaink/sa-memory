@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#include "player_properties.h"
+#include "player_data.h"
 #include "addresses.h"
 
 float GetPlayerHealth(HANDLE hProcess) {
@@ -27,6 +27,38 @@ float GetPlayerArmour(HANDLE hProcess) {
     float armourValue;
     ReadProcessMemory(hProcess, (LPVOID)armourAddress, &armourValue, sizeof(float), NULL);
     return armourValue;
+}
+
+float GetPlayerPosition(HANDLE hProcess, float* x, float* y, float* z) {
+    float value = 0;
+    ReadProcessMemory(hProcess, (LPVOID)X_ADDRESS, x, sizeof(value), NULL);
+    ReadProcessMemory(hProcess, (LPVOID)Y_ADDRESS, y, sizeof(value), NULL);
+    ReadProcessMemory(hProcess, (LPVOID)Z_ADDRESS, z, sizeof(value), NULL);
+    return value;
+}
+
+int GetPlayerMoney(HANDLE hProcess) {
+    int value = 0;
+    ReadProcessMemory(hProcess, (LPVOID)MONEY_ADDRESS, &value, sizeof(value), NULL);
+    return value;
+}
+
+int GetPlayerWantedLevel(HANDLE hProcess) {
+    int value = 0;
+    ReadProcessMemory(hProcess, (LPVOID)WANTED_ADDRESS, &value, sizeof(value), NULL);
+    return value;
+}
+
+int GetPlayerWeapon(HANDLE hProcess) {
+    int value = 0;
+    ReadProcessMemory(hProcess, (LPVOID)WEAPON_ID_ADDRESS, &value, sizeof(value), NULL);
+    return value;
+}
+
+int GetPlayerVehicle(HANDLE hProcess) {
+    int value = 0;
+    ReadProcessMemory(hProcess, (LPVOID)CURRENT_VEHICLE_ID_ADDRESS, &value, sizeof(value), NULL);
+    return value;
 }
 
 bool IsPlayerInVehicle(HANDLE hProcess) {
