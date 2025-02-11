@@ -29,7 +29,7 @@ bool IsPlayerInVehicle(HANDLE hProcess);
 ### Prerequisites
 
 - Make sure that the GTA: San Andreas version is 1.0 and the game is running.
-- You need to have CMake installed on your system. You can download it here.
+- You need to have CMake installed on your system.
 - On Windows, you need to have Visual Studio or MinGW installed.
 - On Linux, you need GCC or Clang installed.
 
